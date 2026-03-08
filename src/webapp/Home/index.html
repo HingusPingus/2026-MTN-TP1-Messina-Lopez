@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polipalloza Festival</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar IDÉNTICO al de grilla.html -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">Polipalloza</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-md-4 gap-md-3">
+                    <li class="nav-item"><a class="nav-link text-light active" href="#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../grilla/index.html">Lineup</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#tickets">Entradas</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#merch">Merch</a></li>
+                </ul>
+                <form class="d-flex me-3 position-relative" role="search">
+                        <input class="form-control bg-dark text-light border-secondary rounded-pill pe-5 form-control-sm" type="search" placeholder="Search here..." aria-label="Search">
+                        <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                </form>
+
+                <div class="d-flex gap-3 text-secondary align-items-center">
+                    <a href="#merch" class="text-secondary"><i class="bi bi-cart fs-5"></i></a>
+                    
+                    <!-- USER DROPDOWN - EXACTAMENTE IGUAL QUE EN GRILLA -->
+                    <div class="dropdown">
+                        <a href="#" class="text-secondary d-flex align-items-center text-decoration-none" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-check fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="../perfil/index.html">Mi cuenta</a></li>
+                           
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="PolipallozaAPI.cerrarSesion()">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container text-center text-white px-4">
+            <h1 class="display-3 fw-bold mb-3">Bienvenido a Polipalloza!</h1>
+            <p class="lead text-light opacity-75 mb-5 mx-auto" style="max-width: 700px;">
+                La mejor experiencia, con el mejor festival.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                <button class="btn btn-outline-light px-5 py-2 fw-semibold text-uppercase">Mas informacion</button>
+                <button class="btn btn-light text-dark px-5 py-2 fw-semibold text-uppercase">Comprar Entradas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">Informacion del festival</h2>
+                <p class="text-secondary small">Todo lo que necesitas saber sobre el evento</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Item 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info-card p-4 rounded h-100 d-flex align-items-center gap-3">
+                        <div class="p-3 rounded bg-dark text-warning">
+                            <i class="bi bi-layout-text-window-reverse fs-4"></i> <!-- Pizza equivalent -->
+                        </div>
+                        <div>
+                            <h5 class="mb-1 fw-bold">Comida</h5>
+                            <p class="mb-0 text-secondary small">Comida del festival</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info-card p-4 rounded h-100 d-flex align-items-center gap-3">
+                        <div class="p-3 rounded bg-dark text-info">
+                            <i class="bi bi-ticket-perforated-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1 fw-bold">Comodidades</h5>
+                            <p class="mb-0 text-secondary small">Comodidades extras</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info-card p-4 rounded h-100 d-flex align-items-center gap-3">
+                        <div class="p-3 rounded bg-dark text-danger">
+                            <i class="bi bi-geo-alt-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1 fw-bold">Ubicacion</h5>
+                            <p class="mb-0 text-secondary small">Donde estamos</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info-card p-4 rounded h-100 d-flex align-items-center gap-3">
+                        <div class="p-3 rounded bg-dark text-primary">
+                            <i class="bi bi-music-note-beamed fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1 fw-bold">Lineup</h5>
+                            <p class="mb-0 text-secondary small">Lista de artistas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Form -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 text-center">
+                    <h2 class="fw-bold mb-2">Voluntarios</h2>
+                    <p class="text-secondary small mb-5">Inscribite y participa del Polipalloza!</p>
+                    
+                    <form id="volunteerForm" class="text-start d-grid gap-4">
+                        <div>
+                            <label class="form-label text-light small fw-bold text-uppercase">DNI o CI</label>
+                            <select class="form-select" required id="roleSelect">
+                                <option value="" selected disabled>Selecciona el puesto</option>
+                                <option value="security">Seguridad</option>
+                                <option value="logistics">Logistica</option>
+                                <option value="cleaning">Limpieza</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-label text-light small fw-bold text-uppercase">Por que te inscribis?</label>
+                            <input type="text" class="form-control" required id="reasonInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary py-3 fw-bold text-uppercase mt-2">Subir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merch Section -->
+    <section id="merch" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">Merch del festival</h2>
+                <p class="text-secondary small">Compra tu merch para ir a la moda</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Merch 1 -->
+                <div class="col-md-4">
+                     <div class="card merch-card border-secondary h-100 text-white">
+                        <div class="merch-img-container">
+                            <img src="../Imagenes/Homi/nirvana.jpg" alt="Remera Nirvana">
+                        </div>
+                        <div class="card-body border-top border-secondary">
+                            <p class="text-secondary text-uppercase fs-6 mb-1" style="font-size: 0.75rem;">Polipalloza Official</p>
+                            <h5 class="card-title fw-bold">Remera Nirvana</h5>
+                            <p class="card-text fw-bold mt-2">$25</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Merch 2 -->
+                <div class="col-md-4">
+                     <div class="card merch-card border-secondary h-100 text-white">
+                        <div class="merch-img-container">
+                            <img src="../Imagenes/Homi/metalica.webp" alt="Gorra Metallica">
+                        </div>
+                        <div class="card-body border-top border-secondary">
+                            <p class="text-secondary text-uppercase fs-6 mb-1" style="font-size: 0.75rem;">Polipalloza Official</p>
+                            <h5 class="card-title fw-bold">Gorra Metallica</h5>
+                            <p class="card-text fw-bold mt-2">$15</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Merch 3 -->
+                <div class="col-md-4">
+                   <div class="card merch-card border-secondary h-100 text-white">
+                        <div class="merch-img-container">
+                            <img src="../Imagenes/Homi/duki.jpg" alt="Hoodie Duki">
+                        </div>
+                        <div class="card-body border-top border-secondary">
+                            <p class="text-secondary text-uppercase fs-6 mb-1" style="font-size: 0.75rem;">Polipalloza Official</p>
+                            <h5 class="card-title fw-bold">Hoodie Duki</h5>
+                            <p class="card-text fw-bold mt-2">$40</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+     <section id="faq" class="py-5 border-top border-secondary">
+        <div class="container py-5 text-center">
+            <h2 class="fw-bold mb-5 text-white">FAQ</h2>
+
+            <div class="row g-5">
+                <!-- FAQ 1 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="faq-icon-wrapper">
+                            <i class="bi bi-question-circle-fill"></i>
+                        </div>
+                        <h6 class="text-secondary text-uppercase small mb-2">Que deberia llevar?</h6>
+                        <p class="fw-bold fs-5 px-2">Lleva tu documento, entrada y ganas de escuchar musica</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="faq-icon-wrapper">
+                            <i class="bi bi-slash-circle-fill"></i>
+                        </div>
+                        <h6 class="text-secondary text-uppercase small mb-2">que items estan prohibidos?</h6>
+                        <p class="fw-bold fs-5 px-2">No lleves comida, armas, etc.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="faq-icon-wrapper">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <h6 class="text-secondary text-uppercase small mb-2">A que hora es el festival?</h6>
+                        <p class="fw-bold fs-5 px-2">Hora de apertura 11 am</p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="faq-icon-wrapper">
+                            <i class="bi bi-qr-code"></i>
+                        </div>
+                        <h6 class="text-secondary text-uppercase small mb-2">Como obtengo mi entrada?</h6>
+                        <p class="fw-bold fs-5 px-2">Imprimilo o mostra el qr que enviamos a tu celular</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer py-5 border-top border-secondary mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <h5 class="text-white mb-3">Polipalloza</h5>
+                <p class="text-secondary small">El mejor festival de música del año</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="text-white mb-3">Enlaces Rápidos</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#info" class="text-secondary text-decoration-none small">Info</a></li>
+                    <li><a href="../grilla/index.html" class="text-secondary text-decoration-none small">Lineup</a></li>
+                    <li><a href="#faq" class="text-secondary text-decoration-none small">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="text-white mb-3">Legal</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-secondary text-decoration-none small">Términos y Servicios</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none small">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="text-white mb-3">Contacto</h6>
+                <p class="text-secondary small">info@polipalloza.com</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-secondary"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-top border-secondary pt-4 mt-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <p class="text-secondary small mb-0">&copy; 2024 Polipalloza. Todos los derechos reservados.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-secondary text-uppercase small">Politica de la Empresa</a>
+                    <a href="#" class="text-decoration-none text-secondary text-uppercase small">Terminos y Servicios</a>
+                    <a href="#" class="text-decoration-none text-secondary text-uppercase small">Centro de ayuda</a>
+                    <a href="#" class="text-decoration-none text-secondary text-uppercase small">Sobre Nosotros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Logic -->
+    <script>
+        // Form handling logic
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.getElementById('roleSelect').value;
+            const reason = document.getElementById('reasonInput').value;
+            
+            if(role && reason) {
+                alert('Application submitted! (Simulation)');
+                // Reset form
+                this.reset();
+            }
+        });
+
+        // Navbar scroll effect (optional polish)
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+       <script src="../js/polipalloza-api.js"></script>
+</body>
+</html>

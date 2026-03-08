@@ -1,0 +1,310 @@
+ 
+ 
+        :root {
+            --bs-body-bg: #050505; /* Consistent dark background */
+            --bs-body-color: #ffffff;
+            --sidebar-width: 260px;
+            
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            overflow-x: hidden;
+            padding-top: 76px; 
+            
+            /* Noise Texture Background */
+            background-color: #000000;
+            background-image:  
+                /* Layer 1: The Black Filter (70% opacity black) */
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+            
+            background-attachment: fixed;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Dropdown Menu overrides */
+        .dropdown-menu-dark {
+            background-color: #1a1a1a;
+            border-color: #333;
+        }
+        .dropdown-item:hover {
+            background-color: #333;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: var(--sidebar-width);
+
+            height: calc(100vh - 76px);
+            position: fixed;
+            top: 76px;
+            left: 0;
+            background-color: #000;
+            border-right: 1px solid #333;
+            z-index: 1020; /* Lower than navbar (1030) */
+            display: flex;
+            flex-direction: column;
+            padding-top: 1rem;
+        }
+       
+
+        .sidebar-brand {
+            padding: 1rem 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            display: none; 
+        }
+
+        .nav-item-custom {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link-custom {
+            color: #aaa;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-link-custom:hover {
+            color: white;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Active State mimicking the blue dotted box in the image */
+        .nav-link-custom.active {
+            color: white;
+            background-color: transparent;
+            border: 1px dashed var(--accent-blue);
+            border-left: 4px solid var(--accent-blue); /* Solid left line */
+            margin: 0 10px;
+            border-radius: 4px;
+            padding-left: calc(1.5rem - 14px); /* Adjust padding for margins */
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: calc(100vh - 76px);
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+
+        /* Profile Header Section */
+        .profile-header {
+            padding: 3rem 4rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #333;
+        }
+
+        .badge-premium {
+            background-color: #e0e0e0;
+            color: #000;
+            font-size: 0.7rem;
+            padding: 0.25em 0.6em;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+    
+        .artists-section {
+            padding: 0 4rem 4rem 4rem;
+        }
+        
+    
+
+        .artist-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .artist-footer {
+            background-color: white;
+            color: black;
+            padding: 1rem;
+            font-weight: 700;
+        }
+        /* Artist Cards – New Design */
+.artist-card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+
+
+   .artist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.4);
+}
+
+
+.artist-img-wrapper {
+    width: 100%;
+    height: 160px; /* antes 220px */
+    overflow: hidden;
+}
+
+.artist-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.artist-info {
+    padding: 0.9rem; /* más compacto */
+    color: white;
+}
+
+.artist-name {
+    font-size: 1.1rem; /* antes 1.3rem */
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.artist-details {
+    padding-left: 1rem;
+    margin: 0.4rem 0;
+    color: #bbb;
+    font-size: 0.8rem; /* antes 0.9rem */
+}
+
+.artist-added {
+    width: 100%;
+    background: #0d6efd;
+    border: none;
+    padding: 0.45rem; /* más pequeño */
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 0.85rem; /* más compacto */
+    font-weight: 600;
+}
+
+/* User Form Section */
+.form-section {
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.password-eye {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    cursor: pointer;
+    color: #888;
+}
+.password-eye:hover {
+    color: white;
+}
+
+/* Estilos para el perfil */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0d6efd;
+}
+
+.badge-premium {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.artist-details li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.artist-details li i {
+    color: #0d6efd;
+}
+
+/* Estados del formulario */
+.form-control:read-only {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #ccc !important;
+}
+
+.form-control:not(:read-only) {
+    background-color: #2d2d2d !important;
+    border-color: #0d6efd !important;
+}
+
+/* Spinner de carga */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+       
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .profile-header, .form-section, .artists-section {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+    

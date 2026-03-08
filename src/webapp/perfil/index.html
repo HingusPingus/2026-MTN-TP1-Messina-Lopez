@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Polipalloza</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <button class="btn btn-link text-white d-lg-none me-2" onclick="PolipallozaAPI.toggleSidebar()">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+            <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="../Home/index.html">Polipalloza</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-md-4 gap-md-3">
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../grilla/index.html">Lineup</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#tickets">Entradas</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#merch">Merch</a></li>
+                </ul>
+                <form class="d-flex me-3 position-relative" role="search">
+                    <input class="form-control bg-dark text-light border-secondary rounded-pill pe-5 form-control-sm" type="search" placeholder="Search here..." aria-label="Search">
+                    <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                </form>
+                <div class="d-flex gap-3 text-secondary align-items-center">
+                    <a href="../Home/index.html#merch" class="text-secondary hover-white"><i class="bi bi-cart fs-5"></i></a>
+                    <div class="dropdown">
+                        <a href="#" class="text-secondary d-flex align-items-center text-decoration-none" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-check fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="index.html">Mi cuenta</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="PolipallozaAPI.cerrarSesion()">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav flex-column">
+            <div class="nav-item-custom"><a href="../Home/index.html#merch" class="nav-link-custom"><i class="bi bi-bag"></i><span>Mi Merch</span></a></div>
+            <div class="nav-item-custom"><a href="../Home/index.html#faq" class="nav-link-custom"><i class="bi bi-life-preserver"></i><span>Ayuda</span></a></div>
+            <div class="nav-item-custom"><a href="../Home/index.html" class="nav-link-custom"><i class="bi bi-people"></i><span>Voluntario</span></a></div>
+            <div class="nav-item-custom"><a href="#" class="nav-link-custom active"><i class="bi bi-person-gear"></i><span>Mi cuenta</span></a></div>
+            <div class="nav-item-custom"><a href="../grilla/index.html" class="nav-link-custom"><i class="bi bi-bookmark-heart"></i><span>Gestionar Grilla</span></a></div>
+        </nav>
+        <div class="mt-auto mb-5 text-center">
+            <div style="width: 4px; height: 40px; background-color: #0d6efd; margin: 0 auto;"></div>
+        </div>
+    </aside>
+
+    <main class="main-content flex-grow-1">
+        <section class="profile-header">
+            <img src="../Imagenes/Perfil/perfil.jpg" alt="Profile" class="profile-avatar">
+            <div>
+                <p class="mb-0 text-secondary fst-italic small" id="bienvenida-usuario">¡Cargando...</p>
+                <h1 class="fw-bold mb-2" id="nombre-usuario">Cargando...</h1>
+                <span class="badge-premium" id="tipo-usuario">Basic Member</span>
+            </div>
+        </section>
+
+        <section class="form-section card bg-dark border-secondary p-4 mb-5">
+            <h3 class="fw-bold mb-4">Tus Datos Personales</h3>
+            <form class="row g-3" id="formulario-perfil">
+                <div class="col-md-6">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control bg-dark text-light border-secondary" 
+                           id="input-nombre" placeholder="Tu nombre" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" class="form-control bg-dark text-light border-secondary" 
+                           id="input-apellido" placeholder="Tu apellido" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control bg-dark text-light border-secondary" 
+                           id="input-email" placeholder="ejemplo@mail.com" readonly>
+                </div>
+
+                
+
+                <div class="col-md-6">
+                    <label class="form-label">DNI</label>
+                    <input type="text" class="form-control bg-dark text-light border-secondary" 
+                           id="input-dni" placeholder="12345678" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Teléfono</label>
+                    <input type="text" class="form-control bg-dark text-light border-secondary" 
+                           id="input-telefono" placeholder="+54 11 ..." readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Dirección</label>
+                    <input type="text" class="form-control bg-dark text-light border-secondary" 
+                           id="input-direccion" placeholder="Tu dirección" readonly>
+                </div>
+
+               
+
+                <div class="col-12 mt-3">
+                    <button type="button" class="btn btn-outline-secondary me-2" onclick="PolipallozaAPI.habilitarEdicion()">
+                        <i class="bi bi-pencil"></i> Editar Perfil
+                    </button>
+                    <button type="submit" class="btn btn-primary px-4" disabled id="btn-guardar">
+                        <i class="bi bi-check-circle"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SECCIÓN DE ARTISTAS FAVORITOS -->
+        <section class="artists-section">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold mb-0">Tus Artistas Favoritos</h3>
+                <div>
+                    <span class="badge bg-primary me-2" id="contador-favoritos">0 artistas</span>
+                    <button class="btn btn-outline-primary btn-sm" onclick="PolipallozaAPI.irAGrilla()">
+                        <i class="bi bi-plus-circle"></i> Agregar más
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Estadísticas -->
+            <div class="card bg-dark border-secondary mb-4">
+                <div class="card-body">
+                    <div id="estadisticas-favoritos">
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <h4 class="fw-bold text-primary">0</h4>
+                                <small class="text-muted">Artistas</small>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-bold text-warning">0h</h4>
+                                <small class="text-muted">Tiempo estimado</small>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-bold text-success">0</h4>
+                                <small class="text-muted">Días</small>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-bold text-info">0</h4>
+                                <small class="text-muted">Escenarios</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid de artistas favoritos -->
+            <div class="row g-4" id="artistas-favoritos-container">
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando artistas favoritos...</span>
+                    </div>
+                    <p class="text-muted mt-3">Cargando tus artistas favoritos...</p>
+                </div>
+            </div>
+
+            <!-- Mensaje cuando no hay favoritos -->
+            <div class="text-center mt-4" id="sin-favoritos" style="display: none;">
+                <i class="bi bi-heart display-1 text-muted"></i>
+                <h4 class="text-muted mt-3">Aún no tienes artistas favoritos</h4>
+                <p class="text-muted">Descubre artistas y agrégalos a tus favoritos para verlos aquí</p>
+                <button class="btn btn-primary mt-3" onclick="PolipallozaAPI.irAGrilla()">
+                    <i class="bi bi-search"></i> Explorar Artistas
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer py-5 border-top border-secondary mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">Polipalloza</h5>
+                    <p class="text-secondary small">El mejor festival de música del año</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Enlaces Rápidos</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#info" class="text-secondary text-decoration-none small">Info</a></li>
+                        <li><a href="../grilla/index.html" class="text-secondary text-decoration-none small">Lineup</a></li>
+                        <li><a href="#faq" class="text-secondary text-decoration-none small">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-secondary text-decoration-none small">Términos y Servicios</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none small">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Contacto</h6>
+                    <p class="text-secondary small">info@polipalloza.com</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                    <p class="text-secondary small mb-0">&copy; 2024 Polipalloza. Todos los derechos reservados.</p>
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Politica de la Empresa</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Terminos y Servicios</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Centro de ayuda</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Sobre Nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/polipalloza-api.js"></script>
+    <script>
+        // Funcionalidad adicional para el perfil
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            const input = document.getElementById("password");
+            const type = input.type === "password" ? "text" : "password";
+            input.type = type;
+            this.classList.toggle("bi-eye-slash-fill");
+        });
+
+        // Prevenir envío del formulario
+        document.getElementById('formulario-perfil').addEventListener('submit', function(e) {
+            e.preventDefault();
+            PolipallozaAPI.guardarCambiosPerfil();
+        });
+    </script>
+</body>
+</html>

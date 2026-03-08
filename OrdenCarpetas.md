@@ -1,0 +1,56 @@
+src
+
+- Java
+    - PolipallozaProject
+        - src
+            - main
+                - java
+                    - com
+                        - polipalozza
+                            - controller
+                                - Peticiones HTTP (REST API).
+                            - dto
+                                - Objetos usados para enviar o recibir datos entre capas
+                            - model
+                                - Clases que representan las entidades del dominio, normalmente las mismas que se mapean a las tablas
+                            - repository
+                                - Interfaces que manejan la persistencia (acceso a base de datos)
+                            - service
+                                - Reciben las solicitudes del controller, aplican las reglas del negocio y usan los repository para acceder a la base de datos.
+                            - PolipalozzaApplication.java
+                                - Clase principal del proyecto que inicia la aplicación Spring Boot
+                - resources
+                    - application.properties
+                        - ACA SE MODIFICA LOS DATOS PARA LA BDD (user y password)  
+
+- Resources
+    - db.sql
+    - logic.sql
+    - modeloDB.mwb
+
+- webapp
+    - static
+        - css
+            - styles comunes entre varios html
+        - imgs
+            - imagenes de toda la web 
+        - js
+            - scripts comunes entre varios html
+    - main.html 
+        - archivo principal, el primero a abrir al iniciar la web
+    - perfil
+        - archivos relacionados a la seccion perfil
+    - register
+        - archivos relacionados a la seccion register
+    - login
+        - archivos relacionados a la seccion login
+    - tickets
+        - archivos relacionados a la seccion tickets
+    - voluntariado
+        - archivos relacionados a la seccion voluntariado
+    - info
+        - archivos relacionados a la seccion info
+    - merch
+        - archivos relacionados a la seccion merch
+    - faq
+        - archivos relacionados a la seccion faq 

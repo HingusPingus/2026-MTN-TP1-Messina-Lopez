@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Grilla - Polipalloza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="../Home/index.html">Polipalloza</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-md-4 gap-md-3">
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link text-light active" href="index.html">Lineup</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#tickets">Entradas</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../Home/index.html#merch">Merch</a></li>
+                </ul>
+                <form class="d-flex me-3 position-relative" role="search">
+                    <input class="form-control bg-dark text-light border-secondary rounded-pill pe-5 form-control-sm" type="search" placeholder="Search here..." aria-label="Search">
+                    <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                </form>
+                <div class="d-flex gap-3 text-secondary align-items-center">
+                    <a href="../Home/index.html#merch" class="text-secondary"><i class="bi bi-cart fs-5"></i></a>
+    
+                    <div class="dropdown">
+                        <a href="#" class="text-secondary d-flex align-items-center text-decoration-none" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-check fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="../perfil/index.html">Mi cuenta</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="PolipallozaAPI.cerrarSesion()">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1" style="padding-top: 76px;">
+        <section class="container page-header">
+            <h1 class="fw-bold display-5 mb-3">Crea tu grilla personal</h1>
+            <p class="text-secondary mb-3">Selecciona los artistas que quieres ver en el festival</p>
+            <div class="alert alert-dark d-inline-block">
+                <i class="bi bi-info-circle"></i>
+                <span id="contador-artistas">Cargando artistas...</span>
+            </div>
+            <!-- Loading State -->
+            <div id="loading-state" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando artistas...</span>
+                </div>
+                <p class="text-muted mt-3">Cargando grilla de artistas...</p>
+            </div>
+            <!-- Error State -->
+            <div id="error-state" class="alert alert-danger text-center" style="display: none;">
+                <i class="bi bi-exclamation-triangle"></i>
+                <span id="error-message">Error al cargar los artistas</span>
+                <button class="btn btn-outline-danger btn-sm ms-2" onclick="PolipallozaAPI.recargarGrilla()">Reintentar</button>
+            </div>
+        </section>
+
+        <section class="container pb-5">
+            <div class="row g-4" id="grilla-container">
+                <!-- Los artistas se cargarán dinámicamente aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer py-5 border-top border-secondary mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">Polipalloza</h5>
+                    <p class="text-secondary small">El mejor festival de música del año</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Enlaces Rápidos</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#info" class="text-secondary text-decoration-none small">Info</a></li>
+                        <li><a href="../grilla/index.html" class="text-secondary text-decoration-none small">Lineup</a></li>
+                        <li><a href="#faq" class="text-secondary text-decoration-none small">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-secondary text-decoration-none small">Términos y Servicios</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none small">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white mb-3">Contacto</h6>
+                    <p class="text-secondary small">info@polipalloza.com</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                    <p class="text-secondary small mb-0">&copy; 2024 Polipalloza. Todos los derechos reservados.</p>
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Politica de la Empresa</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Terminos y Servicios</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Centro de ayuda</a>
+                        <a href="#" class="text-decoration-none text-secondary text-uppercase small">Sobre Nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/polipalloza-api.js"></script>
+    <script>
+        // Función para recargar la grilla manualmente
+        PolipallozaAPI.recargarGrilla = function() {
+            document.getElementById('error-state').style.display = 'none';
+            document.getElementById('loading-state').style.display = 'block';
+            document.getElementById('grilla-container').innerHTML = '';
+            
+            setTimeout(() => {
+                PolipallozaAPI.cargarGrillaCompleta();
+            }, 500);
+        };
+
+        // Mostrar/ocultar estados de carga
+        PolipallozaAPI.mostrarLoading = function(mostrar) {
+            document.getElementById('loading-state').style.display = mostrar ? 'block' : 'none';
+        };
+
+        PolipallozaAPI.mostrarError = function(mensaje) {
+            document.getElementById('error-state').style.display = 'block';
+            document.getElementById('error-message').textContent = mensaje;
+            document.getElementById('loading-state').style.display = 'none';
+        };
+
+        // Inicializar cuando la página cargue
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎵 Inicializando grilla...');
+            PolipallozaAPI.mostrarLoading(true);
+        });
+    </script>
+</body>
+</html>

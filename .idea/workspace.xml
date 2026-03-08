@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f93f7087-6bf4-4157-91f0-2d904d8c164c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/OrdenCarpetas.md" beforeDir="false" afterPath="$PROJECT_DIR$/OrdenCarpetas.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/PolipaloozaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/controller/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/dto/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/model/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/repository/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/java/com/polipalooza/polipalooza/service/a.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/polipalooza/src/test/java/com/polipalooza/polipalooza/PolipaloozaApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="346QU6FdRwyfDJw2VA0HjITWv4Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/petrone/Documentos/TpIntegrador_5to/src/java/polipalozza",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f93f7087-6bf4-4157-91f0-2d904d8c164c" name="Changes" comment="" />
+      <created>1760531554823</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760531554823</updated>
+    </task>
+    <servers />
+  </component>
+</project>

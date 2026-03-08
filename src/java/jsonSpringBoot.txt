@@ -1,0 +1,111 @@
+A.Usuarios
+{
+  "dni": 12345678,
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "mail": "juan.perez@example.com",
+  "contrasenia": "miContraseñaSegura123"
+}
+
+{
+  "dni": 23456789,
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "mail": "juan.perez@example.com",
+  "contrasenia": "miContraseñaSegura123",
+  "esVoluntario": true,
+  "rolNombre": "Técnico"
+}
+
+{
+  "dni": 34567890,
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "mail": "juan.perez@example.com",
+  "generoMusical": "Trap",
+  "nombreArtistico": "ElReyDelTrap"
+}
+
+
+B.Estos inserts ya se encuentran en el archivo inserts, por lo que el unico que va a dejar ingresar mediante post va a ser el escenario ya que es sin id 
+Escenarios
+{
+  "nombre": "URBANO / TRAP",
+  "ubicacion": "Sector Norte",
+  "idSponsor": 1
+}
+
+Shows (el post artista de este punto esta incluido en el show)
+{
+    "idArtista": 1051,
+    "idEscenario": 1,
+    "horaInicio": "13:00:00",
+    "horaFin": "13:30:00",
+    "dia": 1
+}
+
+Staff
+{
+    "idPersonales": [1026, 1034, 1038, 1042, 1030],
+    "idEscenario": 1,
+    "dia": 1,
+    "horaInicio": "12:00:00",
+    "horaFin": "18:30:00"
+}
+
+C. Cualquier id de escenario del 1 al 4
+
+D. Usuarios id
+Del 1001 al 1050 son clientes
+Del 1051 al 1146 son artitas
+Del 1147 al 1161 son personal
+
+E. Favoritos (funcion exclusiva de clientes)
+url:http://localhost:8080/api/usuarios/{id}/favoritos
+id 1001 al 1050
+idSetlist 1 al 96
+{
+    "idSetlist": 54
+}
+
+F. Arma la grilla con todos los favoritos (funcion exclusiva de clientes) Si ya se encuentra armada, se actualiza
+url:http://localhost:8080/api/usuarios/{id}/mi-grilla
+id 1001 al 1050
+
+G. Reservar merchandising y compra tickets
+{
+  "idCliente": 1001,
+  "idMerch": 10,
+  "cantCuotas": 6,
+  "cantidad": 2,
+  "diaRetiro": 1,
+  "tarjeta": {
+    "numero": "1234567890123456",
+    "vencimiento": "2025-12-31",
+    "titular": "Juan Perez",
+    "cvv": 123
+  }
+}
+
+{
+  "idCliente": 1001,
+  "cantDia": 1,
+  "cantCuotas": 6,
+  "cantidad": 2, 
+  "tarjeta": {
+    "numero": "1234567890123456",
+    "vencimiento": "2025-12-31",
+    "titular": "Juan Perez",
+    "cvv": 123
+  }
+}
+
+H. Este insert ya se encuentra en el archivo inserts, por lo que no va a dejar ingresar mediante postman hasta que se borren las 5 lineas
+{
+    "idPersonales": [1026, 1034, 1038, 1042, 1030],
+    "idEscenario": 1,
+    "dia": 1,
+    "horaInicio": "12:00:00",
+    "horaFin": "18:30:00"
+}
+
